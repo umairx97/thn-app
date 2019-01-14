@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-
-
+import Search from "./components/search";
+import Table from "./components/table";
 
 const list = [
   {
@@ -34,7 +34,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      searchVal: "",
+      searchTerm: "",
       list: list
     };
   }
@@ -46,47 +46,26 @@ class App extends Component {
   };
 
   onSearchChange = event => {
-    this.setState({ searchVal: event.target.value });
+    this.setState({ searchTerm: event.target.value });
   };
 
-  isSearched = searchVal => {
+  isSearched = searchTerm => {
     return function(item) {
-      return item.title.toLowerCase().includes(searchVal.toLowerCase());
+      return item.title.toLowerCase().includes(searchTerm.toLowerCase());
     };
   };
 
   render() {
+    const { searchTerm, list } = this.state;
     return (
       <div className="App">
-        <form>
-          <label>Search </label>
-          <input
-            type="text"
-            value={this.state.searchVal}
-            onChange={this.onSearchChange}
-          />
-        </form>
-
-        {this.state.list
-          .filter(this.isSearched(this.state.searchVal))
-          .map(item => (
-            <div key={item.objectID}>
-              <span>
-                <a href={item.url}>Title: {item.title} </a>
-              </span>
-              <br />
-              <span>Author: {item.author}</span> <br />
-              <span>Comments: {item.num_comments}</span>
-              <br />
-              <span>Upvotes: {item.points}</span> <br />
-              <span>
-              
-                
-                <br />
-                <br />
-              </span>
-            </div>
-          ))}
+        <Search value={searchTerm} onChange={this.onSearchChange} />
+        <Table
+          searching={this.isSearched}
+          list={list}
+          pattern={searchTerm}
+          onDismiss={this.onDismiss}
+        />
       </div>
     );
   }
