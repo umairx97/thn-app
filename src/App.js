@@ -59,7 +59,7 @@ class App extends Component {
     const { searchTerm, list } = this.state;
     return (
       <div className="App">
-        <Search value={searchTerm} onChange={this.onSearchChange} />
+        <Search value={searchTerm} onChange={this.onSearchChange}>Search </Search>
         <Table
           searching={this.isSearched}
           list={list}
