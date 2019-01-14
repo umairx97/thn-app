@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import {Button} from 'antd';
-import "antd/dist/antd.css";
+
 
 
 const list = [
@@ -81,8 +80,8 @@ class App extends Component {
               <br />
               <span>Upvotes: {item.points}</span> <br />
               <span>
+              
                 
-                <Button type = "primary" onClick = {() => this.onDismiss(item.objectID)}>Remove</Button>
                 <br />
                 <br />
               </span>
