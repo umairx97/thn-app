@@ -1,33 +1,9 @@
 import React, { Component } from "react";
 import Search from "./components/search";
 import Table from "./components/table";
+import JSON from './db.json'; 
 
-const list = [
-  {
-    title: "React",
-    url: "https://facebook.github.io/react/",
-    author: "Jordan Walke",
-    num_comments: 3,
-    points: 4,
-    objectID: 0
-  },
-  {
-    title: "Redux",
-    url: "https://facebook.github.io/react/",
-    author: "Jordan Walke",
-    num_comments: 3,
-    points: 4,
-    objectID: 1
-  },
-  {
-    title: "React",
-    url: "https://facebook.github.io/react/",
-    author: "Jordan Walke",
-    num_comments: 3,
-    points: 4,
-    objectID: 3
-  }
-];
+const list = JSON;
 
 class App extends Component {
   constructor(props) {
