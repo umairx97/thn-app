@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 
-class Search extends Component {
-  render() {
-    const { value, onChange, children } = this.props;
+const Search = (props) => {
+    const { value, onChange, children } = props;
 
     return (
       <form>
@@ -11,6 +10,6 @@ class Search extends Component {
       </form>
     );
   }
-}
+
 
 export default Search;
