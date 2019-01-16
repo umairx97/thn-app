@@ -13,7 +13,8 @@ a:hover {
   text-decoration: underline;
 }
 
-ul,li {
+ul,
+li {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -29,4 +30,13 @@ button {
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #dddddd;
+  background: transparent;
+  color: #808080;
+  cursor: pointer;
+}
+button:hover {
+  color: #222;
+}
+*:focus {
+  outline: none;
 }

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import Search from "./components/search";
 import Table from "./components/table";
-import JSON from './db.json'; 
+import JSON from "./db.json";
+import "./app.css";
 
 const list = JSON;
 
@@ -34,8 +35,15 @@ class App extends Component {
   render() {
     const { searchTerm, list } = this.state;
     return (
-      <div className="App">
-        <Search value={searchTerm} onChange={this.onSearchChange}>Search </Search>
+      <div className="page">
+        {" "}
+        <div className="interactions">
+          {" "}
+          <Search value={searchTerm} onChange={this.onSearchChange}>
+            {" "}
+            Search{" "}
+          </Search>{" "}
+        </div>
         <Table
           searching={this.isSearched}
           list={list}
