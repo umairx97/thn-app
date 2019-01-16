@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 const Search = (props) => {
     const { value, onChange, children } = props;

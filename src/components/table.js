@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Button from "../widgets/button";
 
 const Table = props => {
@@ -8,14 +8,14 @@ const Table = props => {
     <div className="table">
       {list.filter(searching(pattern)).map(item => (
         <div key={item.objectID} className="table-row">
-          <span style={{ width: "40%" }}>
+          <span style={{ width: "100vh" }}>
             {" "}
-            <a href={item.url}>{item.title}</a>{" "}
+            <a href={item.url}>Title: {item.title}</a>{" "}
           </span>{" "}
-          <span style={{ width: "30%" }}> {item.author} </span>{" "}
-          <span style={{ width: "10%" }}> {item.num_comments} </span>{" "}
-          <span style={{ width: "10%" }}> {item.points} </span>{" "}
-          <span style={{ width: "10%" }}>
+          <span style={{ width: "100vh" }}>Author: {item.author} </span>{" "}
+          <span style={{ width: "100vh" }}>Comments: {item.num_comments} </span>{" "}
+          <span style={{ width: "100vh" }}>Upvotes: {item.points} </span>{" "}
+          <span style={{ width: "100vh" }}>
             {" "}
             <Button
               onClick={() => onDismiss(item.objectID)}

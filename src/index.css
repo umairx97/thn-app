@@ -29,13 +29,14 @@ input {
 button {
   padding: 10px;
   border-radius: 5px;
-  border: 1px solid #dddddd;
+  border: 1px solid black;
   background: transparent;
   color: #808080;
   cursor: pointer;
 }
 button:hover {
-  color: #222;
+  color: dodgerblue;
+
 }
 *:focus {
   outline: none;
