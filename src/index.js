@@ -6,7 +6,7 @@ import AppTest from './app-test';
 
 import './index.css'; 
 
-ReactDOM.render(<AppTest />, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));
 
 // if (module.hot){ 
 //     module.hot.accept()
