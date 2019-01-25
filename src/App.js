@@ -18,13 +18,22 @@ class App extends Component {
     };
   }
 
-  componentDidMount() {
-    const { searchTerm } = this.state;
-
+  fetchSearchTopStories(searchTerm) {
     fetch(`${PATH_BASE}${PATH_SEARCH}?${PARAM_SEARCH}${searchTerm}`)
       .then(response => response.json())
       .then(result => this.setSearchTopStories(result))
       .catch(error => error);
+  }
+
+  componentDidMount() {
+    const { searchTerm } = this.state;
+    this.fetchSearchTopStories(searchTerm);
+  }
+
+  onSearchSubmit(event) {
+    const { searchTerm } = this.state;
+    this.fetchSearchTopStories(searchTerm);
+    event.preventDefault();
   }
 
   setSearchTopStories = result => {
@@ -60,19 +69,20 @@ class App extends Component {
       <div className="page">
         <div className="interactions">
           {" "}
-          <Search value={searchTerm} onChange={this.onSearchChange}>
+          <Search
+            value={searchTerm}
+            onSubmit={this.onSearchSubmit}
+            onChange={this.onSearchChange}
+          >
             {" "}
             Search{" "}
           </Search>{" "}
           <br />
           <span className="credit">Made By Umair Ahmed Bajwa</span>
         </div>
-        {result ? <Table
-          searching={this.isSearched}
-          list={result.hits}
-          pattern={searchTerm}
-          onDismiss={this.onDismiss}
-        /> : null }
+        {result && 
+          <Table list={result.hits} onDismiss={this.onDismiss} />
+        }
       </div>
     );
   }
