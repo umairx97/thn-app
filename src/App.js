@@ -16,8 +16,15 @@ class App extends Component {
       searchTerm: DEFAULT_QUERY,
       result: null
     };
+
+    this.setSearchTopStories = this.setSearchTopStories.bind(this);
+    this.fetchSearchTopStories = this.fetchSearchTopStories.bind(this);
+    this.onSearchChange = this.onSearchChange.bind(this);
+    this.onSearchSubmit = this.onSearchSubmit.bind(this);
+    this.onDismiss = this.onDismiss.bind(this);
   }
 
+  
   fetchSearchTopStories(searchTerm) {
     fetch(`${PATH_BASE}${PATH_SEARCH}?${PARAM_SEARCH}${searchTerm}`)
       .then(response => response.json())
@@ -80,9 +87,7 @@ class App extends Component {
           <br />
           <span className="credit">Made By Umair Ahmed Bajwa</span>
         </div>
-        {result && 
-          <Table list={result.hits} onDismiss={this.onDismiss} />
-        }
+        {result && <Table list={result.hits} onDismiss={this.onDismiss} />}
       </div>
     );
   }
