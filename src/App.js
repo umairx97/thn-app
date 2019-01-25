@@ -43,6 +43,7 @@ class App extends Component {
       .catch(error => error);
   }
 
+  
   componentDidMount() {
     const { searchTerm } = this.state;
     this.fetchSearchTopStories(searchTerm);
